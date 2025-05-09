@@ -14,3 +14,11 @@ def pregunta_01():
     214
 
     """
+    suma_segunda_columna = 0
+    with open('files/input/data.csv', 'r') as file:
+        for line in file:
+            parts = line.strip().split('\t')
+            if len(parts) >= 2:
+                suma_segunda_columna += int(parts[1])
+
+    return suma_segunda_columna
