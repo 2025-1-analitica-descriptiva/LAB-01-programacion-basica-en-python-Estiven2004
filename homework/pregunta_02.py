@@ -15,3 +15,17 @@ def pregunta_02():
     [('A', 8), ('B', 7), ('C', 5), ('D', 6), ('E', 14)]
 
     """
+    registros_por_letra = {}
+    with open('files/input/data.csv', 'r') as file:
+        for line in file:
+            parts = line.strip().split('\t')
+            if len(parts) >= 1:
+                letra = parts[0]
+                if letra in registros_por_letra:
+                    registros_por_letra[letra] += 1
+                else:
+                    registros_por_letra[letra] = 1
+
+    lista_ordenada = sorted(registros_por_letra.items())
+
+    return lista_ordenada
